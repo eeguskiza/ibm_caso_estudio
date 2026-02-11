@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe IBM Caso de Estudio</title>
+<style>*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: #f4f6f9; color: #1a1a2e; margin: 0; padding: 20px;
+}
+.container { max-width: 880px; margin: 0 auto; }
+header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff; padding: 28px 32px; border-radius: 10px;
+    margin-bottom: 24px;
+}
+header h1 { margin: 0 0 6px 0; font-size: 1.5rem; letter-spacing: 0.5px; }
+header .meta { font-size: 0.85rem; opacity: 0.85; line-height: 1.6; }
+header .meta span { display: inline-block; margin-right: 18px; }
+.section {
+    background: #fff; border-radius: 10px; padding: 24px 28px;
+    margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.section h2 {
+    font-size: 1.1rem; color: #16213e; margin: 0 0 16px 0;
+    padding-bottom: 8px; border-bottom: 2px solid #e8ecf1;
+}
+.mono { font-family: "Cascadia Code", "Fira Code", "Consolas", monospace; }
+.bin-display {
+    font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+    font-size: 1.05rem; letter-spacing: 1px; padding: 10px 14px;
+    background: #f8f9fb; border-radius: 6px; display: inline-block;
+    margin: 6px 0; border: 1px solid #e0e4ea;
+}
+.seg-color { color: #2563eb; font-weight: 700; }
+.pag-color { color: #059669; font-weight: 700; }
+.off-color { color: #d97706; font-weight: 700; }
+.bit-i-0 { color: #059669; font-weight: 700; background: #d1fae5; padding: 0 3px; border-radius: 3px; }
+.bit-i-1 { color: #dc2626; font-weight: 700; background: #fee2e2; padding: 0 3px; border-radius: 3px; }
+.badge {
+    display: inline-block; padding: 4px 14px; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px;
+}
+.badge-ok  { background: #d1fae5; color: #065f46; }
+.badge-pf  { background: #fee2e2; color: #991b1b; }
+table {
+    width: 100%; border-collapse: collapse; margin: 10px 0;
+    font-size: 0.9rem;
+}
+th {
+    background: #1a1a2e; color: #fff; padding: 8px 12px;
+    text-align: left; font-weight: 600; font-size: 0.8rem;
+    letter-spacing: 0.3px;
+}
+td {
+    padding: 7px 12px; border-bottom: 1px solid #eaedf2;
+}
+tr:nth-child(even) td { background: #f8f9fb; }
+.val { font-family: "Cascadia Code", "Fira Code", "Consolas", monospace; font-weight: 600; }
+.calc {
+    font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+    background: #f8f9fb; padding: 8px 14px; border-radius: 6px;
+    margin: 8px 0; border-left: 3px solid #94a3b8; font-size: 0.9rem;
+    line-height: 1.7;
+}
+.result-box {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border: 2px solid #059669; border-radius: 10px;
+    padding: 20px 28px; text-align: center; margin: 16px 0;
+}
+.result-box .label { font-size: 0.85rem; color: #065f46; margin-bottom: 4px; }
+.result-box .value {
+    font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+    font-size: 1.6rem; font-weight: 700; color: #065f46;
+}
+.victim-box {
+    background: #fee2e2; border: 2px solid #dc2626; border-radius: 10px;
+    padding: 14px 20px; margin: 12px 0;
+}
+.victim-box .label { font-weight: 700; color: #991b1b; }
+.step-list { padding-left: 0; list-style: none; counter-reset: step; }
+.step-list li {
+    counter-increment: step; padding: 6px 0 6px 36px; position: relative;
+    border-bottom: 1px solid #f0f2f5; font-size: 0.9rem;
+}
+.step-list li::before {
+    content: counter(step); position: absolute; left: 0; top: 6px;
+    width: 24px; height: 24px; border-radius: 50%; background: #e0e4ea;
+    color: #1a1a2e; font-size: 0.75rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+}
+.step-list li.step-victim::before { background: #dc2626; color: #fff; }
+.changed { color: #dc2626; font-weight: 700; }
+.arrow { color: #94a3b8; margin: 0 6px; }
+.epa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .epa-grid { grid-template-columns: 1fr; } }
+footer {
+    text-align: center; padding: 18px; font-size: 0.75rem; color: #94a3b8;
+}
+@media print {
+    body { background: #fff; padding: 0; }
+    .section { box-shadow: none; break-inside: avoid; }
+    header { background: #1a1a2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<header><h1>Resolucion &mdash; Sistema IBM Caso de Estudio</h1><div class="meta"><span>Disco: <b>3330</b></span><span>RSIZE: <b>100 KB</b></span><span>dV: <b class="mono">0x04560A</b></span><span>PTE: <b class="mono">0x5484</b></span></div></header>
+<div class="container">
+<div class="section"><h2>Paso 1: Descomposicion de la Direccion Virtual</h2><p>dV = <span class="mono val">0x04560A</span></p><div class="bin-display"><span class="seg-color">00000100</span><span style="color:#94a3b8"> | </span><span class="pag-color">01010</span><span style="color:#94a3b8"> | </span><span class="off-color">11000001010</span></div><table><thead><tr><th>Campo</th><th>Bits</th><th>Binario</th><th>Decimal</th><th>Hex</th></tr></thead><tbody><tr><td><span class='seg-color'>S (segmento)</span></td><td>8</td><td><span class="val">00000100</span></td><td><span class="val">4</span></td><td><span class="val">0x04</span></td></tr>
+<tr><td><span class='pag-color'>P (pagina)</span></td><td>5</td><td><span class="val">01010</span></td><td><span class="val">10</span></td><td><span class="val">0x0A</span></td></tr>
+<tr><td><span class='off-color'>d (offset)</span></td><td>11</td><td><span class="val">11000001010</span></td><td><span class="val">1546</span></td><td><span class="val">0x60A</span></td></tr>
+</tbody></table><div class="calc">N.Abs pagina = S &times; 32 + P = 4 &times; 32 + 10 = <b>138</b> (0x008A)<br>N.Celdas = RSIZE / 2K = 100 / 2 = <b>50</b></div></div>
+<div class="section"><h2>Paso 2: Analisis de la PTE</h2><p>PTE = <span class="mono val">0x5484</span></p><div class="bin-display">0101 0100 1000 0<span class="bit-i-1">1</span>00</div><p style="font-size:0.8rem;color:#64748b;margin:2px 0 10px 0">Formato: [13 bits datos | <b>I</b> | 2 bits] &nbsp; Bit I = 1</p><p><span class="badge badge-pf">PAGE FAULT</span></p><p>La pagina NO esta en memoria real. Se necesita resolver el page fault.</p></div>
+<div class="section"><h2>Paso 3: Algoritmo LRU 2a Oportunidad</h2><p style="font-weight:600;margin-bottom:4px">Colas ANTES</p><table><thead><tr><th style="width:70px">Cola</th><th>Contenido (celda, R, C)</th></tr></thead><tbody><tr><td style="background:#dbeafe;font-weight:700">Q00</td><td>(16, R=1, C=1), (24, R=1, C=1), (15, R=1, C=1)</td></tr><tr><td style="background:#e0e7ff;font-weight:700">Q01</td><td>(29, R=1, C=1), (30, R=1, C=1)</td></tr><tr><td style="background:#ede9fe;font-weight:700">Q10</td><td>(22, R=1, C=1)</td></tr><tr><td style="background:#fce7f3;font-weight:700">Q11</td><td>(25, R=1, C=1)</td></tr><tr><td style="background:#fef3c7;font-weight:700">HQ</td><td>(32, R=1, C=0), (36, R=1, C=1), (28, R=1, C=0), (25, R=1, C=0)</td></tr></tbody></table><p style="font-weight:600;margin:14px 0 4px 0">Ejecucion:</p><ol class="step-list"><li>Celda 16 con R=1 -&gt; R=0, mover al final de Q00</li>
+<li>Celda 24 con R=1 -&gt; R=0, mover al final de Q00</li>
+<li>Celda 15 con R=1 -&gt; R=0, mover al final de Q00</li>
+<li class="step-victim">Celda 16 con R=0 -&gt; VICTIMA</li>
+</ol><p style="font-weight:600;margin-bottom:4px">Colas DESPUES</p><table><thead><tr><th style="width:70px">Cola</th><th>Contenido (celda, R, C)</th></tr></thead><tbody><tr><td style="background:#dbeafe;font-weight:700">Q00</td><td>(24, R=0, C=1), (15, R=0, C=1)</td></tr><tr><td style="background:#e0e7ff;font-weight:700">Q01</td><td>(29, R=1, C=1), (30, R=1, C=1)</td></tr><tr><td style="background:#ede9fe;font-weight:700">Q10</td><td>(22, R=1, C=1)</td></tr><tr><td style="background:#fce7f3;font-weight:700">Q11</td><td>(25, R=1, C=1)</td></tr><tr><td style="background:#fef3c7;font-weight:700">HQ</td><td>(32, R=1, C=0), (36, R=1, C=1), (28, R=1, C=0), (25, R=1, C=0)</td></tr></tbody></table><div class="victim-box"><span class="label">VICTIMA: Celda 16, R=0, C=1</span><br>Se requiere PAGE-OUT (C=1, pagina modificada)</div></div>
+<div class="section"><h2>Paso 6: PAGE-IN (lectura desde disco)</h2><div class="calc">N.Abs pagina (solicitada) = 138<br>Cilindro = 138 // 114 = <b>1</b><br>Resto&nbsp;&nbsp;&nbsp;&nbsp;= 138 % 114 = 24<br>Pista&nbsp;&nbsp;&nbsp;&nbsp;= 24 // 6 = <b>4</b><br>Registro&nbsp;= 24 % 6 = <b>0</b></div><table><thead><tr><th></th><th>Valor</th></tr></thead><tbody><tr><td>Disco</td><td><span class="val">3330</span> (19 pistas/cil, 6 slots/pista = 114 slots/cil)</td></tr>
+<tr><td>Cilindro</td><td><span class="val">1</span></td></tr>
+<tr><td>Pista</td><td><span class="val">4</span></td></tr>
+<tr><td>Registro</td><td><span class="val">0</span></td></tr>
+<tr><td>DC</td><td><span class="val">0x008000</span> (32768)</td></tr>
+</tbody></table></div>
+<div class="section"><h2>Paso 7: Actualizacion de Tablas</h2><p>Celda asignada: <span class="val">16</span></p><table><thead><tr><th>Entrada</th><th>ANTES</th><th>DESPUES</th></tr></thead><tbody><tr><td>PTE del segmento 4, pagina 10</td><td><span class="val">0x5484</span> (I=1)</td><td><span class="val changed">0x0080</span> (I=0)</td></tr>
+</tbody></table><div class="calc">BI(0) = <span class="val">0x0080</span> = 0000000010000000 &nbsp; (pagina valida, I=0)<br>BI(1) = <span class="val">0x0084</span> = 0000000010000100 &nbsp; (pagina invalida, I=1)</div></div>
+<div class="section"><h2>Direccion Real</h2><div class="calc">DC = 0x008000 (32768)<br>DR = DC + d = 34314</div><div class="result-box"><div class="label">RESULTADO FINAL</div><div class="value">DR = 0x00860A</div><div style="font-size:0.8rem;margin-top:4px;color:#065f46" class="mono">000000001000011000001010b</div></div></div>
+<footer>Generado por IBM Caso de Estudio &mdash; Memoria Virtual System/370</footer>
+</div>
+</body>
+</html>
