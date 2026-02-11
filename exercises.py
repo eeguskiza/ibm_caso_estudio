@@ -210,8 +210,8 @@ EXERCISES: list[dict] = [
     #   Celda 25 aparece en Q11 y HQ (posible error de datos).
     # ------------------------------------------------------------------
     {
-        "id": "exam2324",
-        "title": "Examen extra 23/24 -- dV=04560A, PTE=5484",
+        "id": "extra1",
+        "title": "Extra 1 (examen 23/24) -- dV=04560A, PTE=5484",
         "description": (
             "Disco 3330, RSIZE=100K.\n"
             "AVISO: Los apuntes indican I=0, pero PTE=5484 tiene bit I=1\n"
@@ -240,8 +240,8 @@ EXERCISES: list[dict] = [
     # NOTA: Celda 32 aparece en Q10 y HQ (posible error de datos).
     # ------------------------------------------------------------------
     {
-        "id": "extra1",
-        "title": "Ejercicio extra (apuntes) -- dV=00A845, PTE=2565",
+        "id": "extra2",
+        "title": "Extra 2 (apuntes) -- dV=00A845, PTE=2565",
         "description": (
             "Disco 3350, RSIZE=100K. PTE con I=1, page fault.\n"
             "PFTE octetos 4-5 = 1542.\n"

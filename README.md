@@ -41,13 +41,6 @@ ibm_caso_estudio/
 └── README.md        Este archivo
 ```
 
-## Contexto
-
-Asignatura de **Sistemas Operativos** — Universidad de Deusto.
-Caso de estudio: traduccion de direcciones virtuales con DAT, reemplazamiento
-de paginas mediante LRU de 2a oportunidad y gestion de almacenamiento en disco
-DASD (modelos 3330, 3340, 3350).
-
 ## Autor
 
 Erik Eguskiza Aranda
